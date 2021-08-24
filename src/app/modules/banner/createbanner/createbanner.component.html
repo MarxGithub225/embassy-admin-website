@@ -1,0 +1,26 @@
+<div class="createCountry">
+    <form autocomplete="off" >
+
+        <div class="imagesArea">
+        
+            <div class="imageItem" [style.background-image]="'url(' + image + ')'">
+            </div>
+            <button mat-mini-fab (click)="uploadFile()" type="button">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+        
+        <div class="hideInput">
+            <input type="file" accept="image/*"  onChange={this.onImageChange} id="imageInput" (change)="fileChangeEvent($event)" style="display: none;" />
+            <label for="imageInput"><i className ="fas fa-"></i></label>
+        </div>
+
+        <div class="stepButtons">
+            <div class="button"> &nbsp;</div>
+            <div class="button">
+                <button mat-flat-button color = "primary" type="button" (click)="create()">Enregistrer</button>
+            </div>
+        </div>
+    </form>
+</div>

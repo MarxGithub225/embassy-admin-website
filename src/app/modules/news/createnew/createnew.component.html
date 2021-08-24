@@ -1,0 +1,71 @@
+<div class="createCountry">
+    <form autocomplete="off" >
+
+        <div class="row">
+
+            <div class="col-12">
+                <mat-form-field class="fullwidth" appearance="fill">
+                    <mat-label>Titre</mat-label>
+                    <input [formControl]="title" matInput>
+                    <mat-error>Champs requis</mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="label">Description du produit</div>
+                <angular-editor
+                [placeholder]="'Entrez votre description ici...'"
+                [formControl]="description"
+                [config]="editorConfig"></angular-editor>
+            </div>
+        </div>
+
+        <div class="row"></div>
+        <mat-slide-toggle [(ngModel)]="isVideo" name = "isVideo" color = "warn">C'est un article vidéo </mat-slide-toggle>
+    
+        <div class="row"></div>
+        <div class="imageTitle">
+            Illustration de l'actualité
+        </div>
+        <div class="imagesArea">
+        
+            
+            <div class="imageItem" [style.background-image]="'url(' + image + ')'">
+            </div>
+            <button mat-mini-fab (click)="uploadFile()" type="button">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+
+        <div class="row" *ngIf ="isVideo">
+
+            <div class="col-12">
+                <mat-form-field class="fullwidth" appearance="fill">
+                    <span matPrefix>https://youtu.com/</span>
+                    <input [formControl]="link" placeholder="CODEVIDEO" matInput>
+                    <mat-error>Champs requis</mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <mat-slide-toggle [(ngModel)]="isOnDiscovery" name = "isOnDiscovery" color = "primary">Mettre <strong>A la decouverte </strong></mat-slide-toggle>
+
+        
+        <div class="hideInput">
+            <input type="file" accept="image/*"  onChange={this.onImageChange} id="imageInput" (change)="fileChangeEvent($event)" style="display: none;" />
+            <label for="imageInput"><i className ="fas fa-"></i></label>
+        </div>
+
+        <div class="stepButtons">
+            <div class="button"> &nbsp;</div>
+            <div class="button">
+                <button mat-flat-button color = "primary" type="button" (click)="create()">Enregistrer</button>
+            </div>
+        </div>
+    </form>
+</div>

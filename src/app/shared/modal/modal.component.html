@@ -1,0 +1,89 @@
+<div class="modalTitle">
+    {{modalTitle}}
+</div>
+
+
+<!--    ADMIN -->
+<div class="modalContainer" *ngIf = " modalRoot === 'editAdmin' "> 
+    <app-editadministrator
+    [datas] = "modalDatas"
+    ></app-editadministrator>
+</div>
+
+<div class="modalContainer" *ngIf = " modalRoot === 'deleteAdmin' "> 
+    <app-deleteadministrator
+    [datas] = "modalDatas"
+    ></app-deleteadministrator>
+</div>
+
+<div class="modalContainer" *ngIf = " modalRoot === 'createAdmin' "> 
+    <app-createadministrator
+    [datas] = "modalDatas"
+    ></app-createadministrator>
+</div>
+
+
+
+<!-- Banner -->
+<div class="modalContainer" *ngIf = " modalRoot === 'createBanner' "> 
+    <app-createbanner
+    [datas] = "modalDatas"
+    ></app-createbanner>
+</div>
+
+
+<div class="modalContainer" *ngIf = " modalRoot === 'editBanner' "> 
+    <app-editbanner
+    [datas] = "modalDatas"
+    ></app-editbanner>
+</div>
+
+
+<div class="modalContainer" *ngIf = " modalRoot === 'deletebanner' "> 
+    <app-deletebanner
+    [datas] = "modalDatas"
+    ></app-deletebanner>
+</div>
+
+
+<!-- Embassy -->
+<div class="modalContainer" *ngIf = " modalRoot === 'createEmbassy' "> 
+    <app-createembassy
+    [datas] = "modalDatas"
+    ></app-createembassy>
+</div>
+
+
+<div class="modalContainer" *ngIf = " modalRoot === 'editEmbassy' "> 
+    <app-editembassy
+    [datas] = "modalDatas"
+    ></app-editembassy>
+</div>
+
+
+<div class="modalContainer" *ngIf = " modalRoot === 'deleteEmbassy' "> 
+    <app-deleteembassy
+    [datas] = "modalDatas"
+    ></app-deleteembassy>
+</div>
+
+<!-- News -->
+<div class="modalContainer" *ngIf = " modalRoot === 'createNew' "> 
+    <app-createnew
+    [datas] = "modalDatas"
+    ></app-createnew>
+</div>
+
+
+<div class="modalContainer" *ngIf = " modalRoot === 'editNew' "> 
+    <app-editnew
+    [datas] = "modalDatas"
+    ></app-editnew>
+</div>
+
+
+<div class="modalContainer" *ngIf = " modalRoot === 'deleteNew' "> 
+    <app-deletenew
+    [datas] = "modalDatas"
+    ></app-deletenew>
+</div>

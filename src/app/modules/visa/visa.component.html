@@ -1,0 +1,80 @@
+<div class="full-page-module">
+    <div class="countryContainer">
+
+        <div class="header">
+            <span>Les demandes de visa</span>
+            
+        </div>
+        <hr>
+
+        
+
+        <div class="ordersDatas">
+
+            <p class="note"  *ngIf = "moduleState.visas.length === 0">Aucune données pour le moment</p>
+
+            <div class="row">
+                <div class="col-md-12" *ngFor = "let a of moduleState.visas">
+                    <div class="productItem" 
+
+                    (click) = "select (a)"
+                    >
+                        
+    
+                        <div class="productBackOverlay">
+                            
+                            <div class="productTitle">
+                                <p><mat-icon>person_outline</mat-icon> {{a.name}} </p>
+                                <p>{{a.date | date}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="orderDetails">
+            <p class="note">Les détails s'afficheront ici</p>
+
+            <table class="table" style="width: 100%;" *ngIf = "isSelected">
+                <thead >
+                    <th>Demandeur</th>
+                    <th>E-mail</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Profession</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{selected.name}}</td>
+                        <td>{{selected.email}}</td>
+                        <td>{{selected.phone}}</td>
+                        <td>{{selected.address}}</td>
+                        <td>{{selected.djob}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table" style="width: 100%;" *ngIf = "isSelected">
+                <thead >
+                    <th style="width: 50%;">Pays</th>
+                    <th>Type de visa</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{selected.country}}</td>
+                        <td>{{selected.type}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            
+        </div>
+
+        
+    </div>
+</div>

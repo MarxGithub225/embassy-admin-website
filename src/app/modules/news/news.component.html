@@ -1,0 +1,102 @@
+<div class="full-page-module">
+    <div class="countryContainer">
+
+        <div class="header">
+            <span>Les actualités</span>
+            <div class="add"
+            (click) = " openModal ('100', '%', 'createNew', 'Ajouter une actualité', '') "
+            >
+                <mat-icon>add</mat-icon>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field class="fullwidth" appearance="fill">
+                    <mat-label>Rechercher une actualité</mat-label>
+                    <input name="search" [(ngModel)]="searchText" matInput>
+                    <mat-error>Champs requis</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 col-sm-6" *ngFor = "let new of moduleState.news | filter:searchText">
+                <div class="newItem" 
+                [style.background-image]=" 'url(' + baseUrl + new.image + ')' ">
+                    
+
+                
+
+                    <div class="newBackOverlay">
+                        <div class="menu">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item
+                                (click) = " openModal ('100', '%', 'editNew', 'Modifier l\' actualité', new) "
+                                >
+                                  <mat-icon>edit</mat-icon>
+                                  <span>Modifier</span>
+                                </button>
+
+
+                                <button mat-menu-item *ngIf = "new.state === '1'"
+                                (click)="edit(new, 0)"
+                                >
+                                    <span  
+                                    title="Désactiver" >
+                                        <mat-icon style="color: #008080;">toggle_on</mat-icon> 
+                                    </span>
+
+                                    <span>Désactiver</span>
+                                </button>
+
+                                <button mat-menu-item *ngIf = "new.state === '0'"
+                                (click)="edit(new, 1)"
+                                >
+                                    <span 
+                                    title="Activer"
+                                    >
+                                        <mat-icon style="color: #dfca0e;">toggle_off</mat-icon> 
+                                    </span>
+
+                                    <span>Activer</span>
+                                </button>
+
+                                
+                              </mat-menu>
+                        </div>
+                        <div class="newTitle">
+                            <div class="vid" *ngIf ="new.type === '0'">
+                                <mat-icon>play_circle_filled</mat-icon>
+                            </div> {{new.title}}
+                        </div>
+                        <div class="toolBar">
+                            
+                            <div class="rightTools">
+
+                                <span class="notApproved" 
+                                *ngIf = "new.state === '0'">
+                                     Désactivé
+                                </span>
+
+                                <span class="approved" 
+                                *ngIf = "new.state === '1'">
+                                     En ligne
+                                </span>
+                                
+                            </div>
+                            
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
